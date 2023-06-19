@@ -1,30 +1,52 @@
-<!-- by basecmd95.blogspot.com -->
+<div id="cookiePrompt" class="cookie-prompt">
+  <span>This website uses cookies and bla bla bla what you need. <a href="https://www.basecmd95.site/2023/05/privacy-policy.html" onclick="showLearnMore()">Learn More</a></span>
+  <button id="acceptButton" onclick="acceptCookies()">Accept</button>
+</div>
+<script>
+function checkCookieConsent() {
+  var cookieAccepted = localStorage.getItem("cookieAccepted");
+  if (!cookieAccepted) {
+    var cookiePrompt = document.getElementById("cookiePrompt");
+    cookiePrompt.classList.add("show");
+  }
+}
 
+function acceptCookies() {
+  localStorage.setItem("cookieAccepted", true);
+  var cookiePrompt = document.getElementById("cookiePrompt");
+  cookiePrompt.classList.remove("show");
+}
 
-<script async='true' src='https://resources.blogblog.com/blogblog/data/res/326997584-rockpool_compiled.js' type='text/javascript'/>
-<script defer='defer' src='/js/cookienotice.js'/>
-  <script src='https://www.blogger.com/static/v1/widgets/3381873457-widgets.js' type='text/javascript'/>
+window.addEventListener('DOMContentLoaded', function() {
+  checkCookieConsent();
+});
+</script>
 
-    
-    
-    
-    
-    
-    
-  &lt;script&gt; document.addEventListener(&#39;DOMContentLoaded&#39;, function(event) { window.cookieChoices &amp;&amp; cookieChoices.showCookieConsentBar &amp;&amp; cookieChoices.showCookieConsentBar( (window.cookieOptions &amp;&amp; cookieOptions.msg) 
+<div id="learnMore" class="learn-more">
+  <!-- Include your "Learn More" content here -->
+</div>
+<style>
+.cookie-prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none;
+}
 
+.cookie-prompt.show {
+  display: block;
+}
 
-|| &#39;This website uses cookies for In order for Google to provide services and analyze traffic, your IP address and user agent are shared with Google along with information about performance and security in order to guarantee the quality of the service, generate user Usage statistics and detect and prevent unauthorized use.&#39;, (window.cookieOptions &amp;&amp; cookieOptions.close) 
+.learn-more {
+  display: none;
+}
 
-
-|| &#39;Ok&#39;, (window.cookieOptions &amp;&amp; cookieOptions.learn) 
-
-
-|| &#39;Learn more&#39; , (window.cookieOptions &amp;&amp; cookieOptions.link) 
-
-
-|| &#39;https://basecmd95.blogspot.com&#39;); }); &lt;/script&gt;
-    
-    
-    <!-- by basecmd95.blogspot.com -->
-     
+.learn-more.show {
+  display: block;
+}
+</style>
